@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
     let arrayInfo = [];
 
-    useEffect(() => {
       axios
         .get("https://summershop.herokuapp.com/login/sell")
         .then((res) => {
@@ -31,7 +30,8 @@ import { useNavigate } from "react-router-dom";
           console.log(error);
         });
 
-    }, []);
+    
+
     function clicked(itemData)
     {
       navigate("/login/item/"+itemData.itemID)
