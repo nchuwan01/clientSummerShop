@@ -79,6 +79,7 @@ function CardModal()
             }
             else 
             {
+              
               text = document.createTextNode("Email Has Been Sent");
               newDiv.style.color = "green";
             }
