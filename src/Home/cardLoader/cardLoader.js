@@ -13,14 +13,14 @@ import { useNavigate } from "react-router-dom";
         .get("https://summershop.herokuapp.com/login/sell")
         .then((res) => {
             let data = res.data;
-           let arry = data.map((item)=>{
+           data.map((item)=>{
               if(item.category === categoryType)
               {
                 arrayInfo.push(item);    
               }   
               arrayInfo = arrayInfo.reverse();
               setHouseholdData(arrayInfo);
-              return arrayInfo;
+              return householdData;
             })
 
 
