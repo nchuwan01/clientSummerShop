@@ -21,7 +21,7 @@ function NavbarResize() {
     }
     function logoutClicked()
     {
-      axios.post("http://3.141.202.170:4000/logout")
+      axios.post("http://18.191.202.74:4000/logout")
       .then(res =>{
         cookies.remove("access-token");
         navigate("/");
@@ -34,7 +34,7 @@ function NavbarResize() {
     }
   
   
-    axios.get("http://3.141.202.170:4000/login/", {
+    axios.get("http://18.191.202.74:4000/login/", {
       headers: {
         withCredentials: true,
         cook: cookies.get("access-token")

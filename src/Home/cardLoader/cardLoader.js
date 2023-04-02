@@ -47,7 +47,7 @@ import { useNavigate } from "react-router-dom";
               <div key={item.itemID} value={item.itemID} onClick={()=>clicked(item)} className="cardIO">   
                   <div className="imgDiv">
                     {item.image ? 
-                    <img className="innerImg" src={`http://3.141.202.170:4000/images/${item.image}`} alt={item.name}/>
+                    <img className="innerImg" src={`http://18.191.202.74:4000/images/${item.image}`} alt={item.name}/>
                       : <div> Loading....</div>};
                   </div>
                   <div className="card-footer">

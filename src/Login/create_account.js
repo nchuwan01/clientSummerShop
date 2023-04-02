@@ -18,7 +18,7 @@ function Create_Account() {
     function registerSubmitted(event)
     {
         event.preventDefault();
-        axios.post("http://3.141.202.170:4000/register", data)
+        axios.post("http://18.191.202.74:4000/register", data)
         .then(response =>{
 
             if(document.getElementById("message") == null){
