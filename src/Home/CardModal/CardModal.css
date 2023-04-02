@@ -1,0 +1,66 @@
+.bottomFooter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Maincard
+{
+    margin: 1%;
+}
+#mainDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Maincard:hover{
+    border: none;
+    cursor:default;
+}
+#textAreaModal{
+    margin: 10px;
+    width: 90%;
+    height: 100px;
+}
+
+#sendMessageButton{
+    margin-top: 1%;
+}
+
+.modalCardDiv{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    
+}
+.detailCard{
+    display: flex;
+    background-color: aliceblue;
+    padding: 2%;
+    border-radius: 2%;
+    margin: 1%;
+    flex-direction: column;
+}
+.modalImage{
+    max-height: 300px;
+
+}
+.modalDivs{
+    display: flex;
+    padding: 1%;
+    justify-content: center;
+    align-items: center;
+}
+#modalForm{
+    padding: 2%;
+}
+#mainDivOfModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-footer{
+    text-align: center;
+
+}

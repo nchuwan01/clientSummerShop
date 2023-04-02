@@ -1,0 +1,136 @@
+body
+{
+    background-image: none;
+    background-color:#4267B2;
+    background-size: cover;
+    background-position: center top;
+    align-content: center;
+}
+.errorDivs
+{
+    color: red;
+}
+#button_username
+{
+    background-color: aqua;
+}
+
+.fontAwe,.fontAweDiv{
+    display: flex;
+    align-items: center;
+
+}
+.fontAweDiv{
+    padding: 15px;
+}
+.fontAweDiv:hover
+{
+    cursor: pointer;
+    background-color: aquamarine;
+}
+li:hover{
+    cursor: pointer;
+}
+.navLink 
+{
+    float: left;
+}
+#imgLink{
+    padding-left: 1%;
+}
+#logoImg{
+    width: 100px;
+}
+.navbar{
+    padding: 0%;
+}
+#submitBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.cardId{
+    padding: 2%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.infoCard{
+    padding: 1rem;
+    background-color: white;
+}
+.cardDiv{
+    display: grid;
+    padding: 2%;
+    column-gap: 1%;
+    row-gap: 1%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+.cardIO {
+    display: grid;
+    border-radius: 10px;
+    grid-template-rows: 1fr;
+    background-color: aliceblue;
+    padding: 2% 2% 0% 2%;
+
+}
+.cardIO:hover{
+    border: 2px solid rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.imgDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    max-height: 250px;
+    min-height: 200px;
+}
+
+.innerImg{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+
+}
+.card-footer{
+    bottom: 0;
+}
+#sellButton{
+    width: 200px;
+    height: 50px;
+}
+.burgerNav{
+    line-height:normal;
+}
+.passwordWarning{
+    color: red;
+}
+
+@media (max-width: 1256px) {
+    body {
+      background-color: lightblue;
+    }
+    .cardDiv{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+    .cardDiv{
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+   @media (max-width: 400px) {
+    body {
+      background-color: lightblue;
+    }
+    .cardDiv{
+        grid-template-columns: 1fr;
+    }
+  }
+  
+  

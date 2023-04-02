@@ -1,0 +1,144 @@
+.navbar{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+html{
+    font-size: 20px;
+}
+
+#text_form, #form_data
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+
+.sellDiv{
+    
+    display: flex;
+    justify-content: center;
+}
+#form_data{
+    margin-top: 100px;
+    
+    width: 500px;
+    height: 90%;
+
+    background-color: whitesmoke;
+}
+form{
+    padding: 10%;
+}
+
+#main_flex
+{
+    display: grid;
+    background: rgb(245, 245, 245);
+    border-radius: 2%;
+    row-gap: 30px;
+    padding: 30px;
+}
+
+.label_input
+{
+    display: flex;
+    justify-content: space-between; 
+    column-gap: 10px;   
+    align-items: center;
+}
+#sign_in
+{
+    display: grid;
+    grid-template-areas:  'sign_button sign_button'
+                           'create create';
+    text-align: center;
+    row-gap: 10px;
+
+}
+.Login_ButtonLink
+{
+    display: grid;
+    grid-template-areas:  'sign_button sign_button'
+                           'sign_in sign_in';
+    text-align: center;
+    row-gap: 10px;
+
+}
+#sign_in_link {
+    grid-area:sign_in;
+    width: 100%;
+    text-align: center;
+}
+#param_message {
+    background-color: rgba(245, 222, 21, 0.5);
+    color: brown;
+    margin-top: 10px;
+
+}
+#sign_button
+{
+    grid-area:sign_button;
+    width: 100%;
+}
+#sign_button>button{
+    height: 40px;
+    width: 40%;
+    font-size: 80%;
+}
+
+#create{
+    grid-area: create;
+    text-align: center;
+
+}
+#password_message{
+    text-align: center;  
+}
+
+
+label{
+    text-align: left;
+}
+input
+{
+   height: 1.5rem;
+   font-size: 1rem;
+   float: right;
+}
+Link{
+    text-decoration: none;
+    font-size: .95rem;
+    
+}
+Link:hover, button:hover{
+    cursor: pointer;
+}
+
+#logo_img{
+    height: 50px;
+}
+#img_div
+{
+    text-align: center;
+}
+
+#message{
+    font-size: 15px;
+    text-align: center;
+    color: red;
+}
+
+@media (max-width: 334px) 
+{
+    .label_input
+    {
+        display: block;  
+    }
+    
+} 
+    
+

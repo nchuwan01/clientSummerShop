@@ -1,0 +1,15 @@
+#hamburgerNav{
+    float: right;
+}
+#navBurger
+{
+    float: right;
+}
+.middleDiv{
+    display: flex;
+    column-gap: 2px;
+    margin: 40px 0px 40px;
+    justify-content: center;
+    justify-items: center;
+    font-size: 20px;
+}
