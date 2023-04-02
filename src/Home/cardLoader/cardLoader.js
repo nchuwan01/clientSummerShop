@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import axios from "axios";
 import "./../HomeCSS/homeStyle.css";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
         .get("https://summershop.herokuapp.com/login/sell")
         .then((res) => {
             let data = res.data;
-           data.map((item)=>{
+           let arry = data.map((item)=>{
               if(item.category === categoryType)
               {
                 arrayInfo.push(item);    
