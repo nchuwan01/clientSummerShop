@@ -17,7 +17,7 @@ function HomePage_Nav() {
 
   function logoutClicked()
   {
-    axios.post("https://summershop.herokuapp.com/logout")
+    axios.post("http://3.141.202.170:4000/logout")
     .then(res =>{
       cookies.remove("access-token");
       navigate("/");
@@ -30,7 +30,7 @@ function HomePage_Nav() {
   }
 
 
-  axios.get("https://summershop.herokuapp.com/login", {
+  axios.get("http://3.141.202.170:4000/login", {
     headers: {
       withCredentials: true,
       cook: cookies.get("access-token")

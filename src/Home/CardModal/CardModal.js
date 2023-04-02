@@ -28,7 +28,7 @@ function CardModal()
     const fetchData = async () => {
       try {
         // Get item details
-        const itemRes = await axios.get(`https://summershop.herokuapp.com/login/item/${itemId}`);
+        const itemRes = await axios.get(`http://3.141.202.170:4000/login/item/${itemId}`);
         const { sid, name, description, price, image } = itemRes.data[0];
         setSid(sid);
         setName(name);
@@ -37,11 +37,11 @@ function CardModal()
         setImage(image);
   
         // Get poster details
-        const userRes = await axios.get(`https://summershop.herokuapp.com/login/user/${sid}`);
+        const userRes = await axios.get(`http://3.141.202.170:4000/login/user/${sid}`);
          setPoster(userRes.data);
   
         // Check if the logged-in user is the owner of the item
-        const resultRes = await axios.get('https://summershop.herokuapp.com/login', {
+        const resultRes = await axios.get('http://3.141.202.170:4000/login', {
           headers: {
             withCredentials: true,
             cook: cookies.get('access-token')
@@ -63,7 +63,7 @@ function CardModal()
       function handleSubmit(event)
       {   
         event.preventDefault();     
-        axios.post("https://summershop.herokuapp.com/login/message",[{ "sid":sid, "message": message, "itemName": name} ], {
+        axios.post("http://3.141.202.170:4000/login/message",[{ "sid":sid, "message": message, "itemName": name} ], {
           headers: {
             withCredentials: true,
             cook: cookies.get("access-token")
@@ -97,7 +97,7 @@ function CardModal()
       function deletePost()
       {
         console.log(cookies.get("access-token"));
-        axios.get("http://localhost:4000/login/delete/"+itemId, { headers: {
+        axios.get("http://3.141.202.170:4000/login/delete/"+itemId, { headers: {
             withCredentials: true,
             cook: cookies.get("access-token")
           }})
@@ -112,7 +112,7 @@ function CardModal()
           <div className="row g-3 modalCardDiv" >
             <div className="col-sm-7 detailCard">
               <div className="modalDivs">
-                {image ? <img className="innerImg modalImage" src={`http://localhost:4000/images/${image}`} alt={name}/>
+                {image ? <img className="innerImg modalImage" src={`http://3.141.202.170:4000/images/${image}`} alt={name}/>
                   : <div>Loading....</div>}
               </div>
               {owner ? <form id="modalForm" onSubmit={handleSubmit}>

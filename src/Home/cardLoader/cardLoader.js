@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
     let arrayInfo = [];
 
       axios
-        .get("https://summershop.herokuapp.com/login/sell")
+        .get("http://3.141.202.170:4000/login/sell")
         .then((res) => {
             let data = res.data;
            data.map((item)=>{
@@ -47,7 +47,7 @@ import { useNavigate } from "react-router-dom";
               <div key={item.itemID} value={item.itemID} onClick={()=>clicked(item)} className="cardIO">   
                   <div className="imgDiv">
                     {item.image ? 
-                    <img className="innerImg" src={`http://localhost:4000/images/${item.image}`} alt={item.name}/>
+                    <img className="innerImg" src={`http://3.141.202.170:4000/images/${item.image}`} alt={item.name}/>
                       : <div> Loading....</div>};
                   </div>
                   <div className="card-footer">
