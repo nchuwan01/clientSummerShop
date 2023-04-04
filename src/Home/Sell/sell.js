@@ -44,7 +44,7 @@ function Sell() {
     formData.append("category", category);
     formData.append("name", item);
   
-    axios.post("http://3.144.92.61/login/sell",formData, { headers: {
+    axios.post("https://3.145.154.246/login/sell",formData, { headers: {
         withCredentials: true,
         cook: cookies.get("access-token")
     }})

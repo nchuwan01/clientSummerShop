@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
     let arrayInfo = [];
 
       axios
-        .get("http://3.144.92.61/login/sell")
+        .get("https://3.145.154.246/login/sell")
         .then((res) => {
             let data = res.data;
            data.map((item)=>{
@@ -47,7 +47,7 @@ import { useNavigate } from "react-router-dom";
               <div key={item.itemID} value={item.itemID} onClick={()=>clicked(item)} className="cardIO">   
                   <div className="imgDiv">
                     {item.image ? 
-                    <img className="innerImg" src={`http://3.144.92.61/images/${item.image}`} alt={item.name}/>
+                    <img className="innerImg" src={`https://3.145.154.246/images/${item.image}`} alt={item.name}/>
                       : <div> Loading....</div>};
                   </div>
                   <div className="card-footer">
