@@ -121,7 +121,7 @@ function CardModal()
                 <div className="modalDivs">
                   <button id="sendMessageButton" type="submit" className="btn btn-outline-primary">Send Message to {poster}'s Email</button>
                 </div>
-              </form> : <div className="modalDivs"> <button onClick={()=> deletePost()} id="deletePost" className="btn btn-outline-danger">Delete</button> </div>};
+              </form> : <div className="modalDivs"> <button onClick={()=> deletePost()} id="deletePost" className="btn btn-outline-danger">Delete</button> </div>}
               <div className="modalDivs">
                 <div className="card-text" id="descriptionParagraph">{name}</div>
               </div>
