@@ -3,6 +3,8 @@ import {useNavigate, useParams } from "react-router-dom";
 import "./CardModal.css";
 import axios from "axios";
 import cookies from "js-cookie"
+import {APILocation} from "../../httpAPILocation/httpLocation";
+
 
 
 function CardModal()
@@ -28,7 +30,7 @@ function CardModal()
     const fetchData = async () => {
       try {
         // Get item details
-        const itemRes = await axios.get(`https://3.145.154.246/login/item/${itemId}`);
+        const itemRes = await axios.get(`${APILocation}/login/item/${itemId}`);
         const { sid, name, description, price, image } = itemRes.data[0];
         setSid(sid);
         setName(name);
@@ -37,11 +39,11 @@ function CardModal()
         setImage(image);
   
         // Get poster details
-        const userRes = await axios.get(`https://3.145.154.246/login/user/${sid}`);
+        const userRes = await axios.get(`${APILocation}/login/user/${sid}`);
          setPoster(userRes.data);
   
         // Check if the logged-in user is the owner of the item
-        const resultRes = await axios.get('https://3.145.154.246/login', {
+        const resultRes = await axios.get(`${APILocation}/login`, {
           headers: {
             withCredentials: true,
             cook: cookies.get('access-token')
@@ -63,7 +65,7 @@ function CardModal()
       function handleSubmit(event)
       {   
         event.preventDefault();     
-        axios.post("https://3.145.154.246/login/message",[{ "sid":sid, "message": message, "itemName": name} ], {
+        axios.post(`${APILocation}/login/message`,[{ "sid":sid, "message": message, "itemName": name} ], {
           headers: {
             withCredentials: true,
             cook: cookies.get("access-token")
@@ -97,10 +99,9 @@ function CardModal()
       function deletePost()
       {
         console.log(cookies.get("access-token"));
-        axios.get("https://3.145.154.246/login/delete/"+itemId, { headers: {
+        axios.get(`${APILocation}/login/delete/`+itemId, {
             withCredentials: true,
-            cook: cookies.get("access-token")
-          }})
+          })
         .then(res=>{
           navigate(-1);  
 
@@ -112,7 +113,7 @@ function CardModal()
           <div className="row g-3 modalCardDiv" >
             <div className="col-sm-7 detailCard">
               <div className="modalDivs">
-                {image ? <img className="innerImg modalImage" src={`https://3.145.154.246/images/${image}`} alt={name}/>
+                {image ? <img className="innerImg modalImage" src={`${APILocation}/images/${image}`} alt={name}/>
                   : <div>Loading....</div>}
               </div>
               {owner ? <form id="modalForm" onSubmit={handleSubmit}>

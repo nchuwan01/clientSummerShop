@@ -7,6 +7,7 @@ import Logo from "../../images/logoBg.png";
 import {faBook, faComputer, faHouse, faMoneyBill, faPlus,faBars} from "@fortawesome/free-solid-svg-icons";
 import "./styleNavBar.CSS";
 import cookies from "js-cookie";
+import {APILocation} from "../../httpAPILocation/httpLocation";
 
 
 
@@ -17,7 +18,7 @@ function HomePage_Nav() {
 
   function logoutClicked()
   {
-    axios.post("https://3.145.154.246/logout")
+    axios.post(`${APILocation}/logout`)
     .then(res =>{
       cookies.remove("access-token");
       navigate("/");
@@ -30,11 +31,9 @@ function HomePage_Nav() {
   }
 
 
-  axios.get("https://3.145.154.246/login", {
-    headers: {
-      withCredentials: true,
-      cook: cookies.get("access-token")
-  }})
+  axios.get(`${APILocation}/login`,  {
+      withCredentials: true
+    })
   .then(result => {
     if(result.data)
     {

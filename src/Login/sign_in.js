@@ -3,7 +3,7 @@ import "./login_css/sign_in.css";
 import Logo from "./../images/logoBg.png";
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { APILocation } from '../httpAPILocation/httpLocation';
 
 function Sign_In() {
   const[username, setUsername] = useState("");
@@ -17,9 +17,8 @@ function Sign_In() {
       user_name: username,
       password: password
     }
-    axios.post("https://3.145.154.246/login", data,{
-      withCredentials: true,
-      cook: Cookies.get("access-token")
+    axios.post(`${APILocation}/login`, data,{
+      withCredentials: true
     })
     .then(res =>{
       if(res.data.detail)

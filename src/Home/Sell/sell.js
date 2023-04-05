@@ -1,7 +1,7 @@
 import {useState } from "react";
 import axios from "axios";
 import "./../HomeCSS/homeStyle.css";
-import cookies from "js-cookie";
+import {APILocation} from "../../httpAPILocation/httpLocation";
 
 
 
@@ -44,10 +44,9 @@ function Sell() {
     formData.append("category", category);
     formData.append("name", item);
   
-    axios.post("https://3.145.154.246/login/sell",formData, { headers: {
-        withCredentials: true,
-        cook: cookies.get("access-token")
-    }})
+    axios.post(`${APILocation}/login/sell`,formData, {
+        withCredentials: true
+    })
     .then((res) =>{
       console.log(res.data);
       if(document.getElementById("message")==null){

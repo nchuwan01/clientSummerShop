@@ -2,6 +2,7 @@ import {useState } from "react";
 import axios from "axios";
 import "./../HomeCSS/homeStyle.css";
 import { useNavigate } from "react-router-dom";
+import {APILocation} from "../../httpAPILocation/httpLocation";
 
  function CardLoader({categoryType}) {
     const [householdData, setHouseholdData] = useState([]);
@@ -10,7 +11,7 @@ import { useNavigate } from "react-router-dom";
     let arrayInfo = [];
 
       axios
-        .get("https://3.145.154.246/login/sell")
+        .get(`${APILocation}/login/sell`)
         .then((res) => {
             let data = res.data;
            data.map((item)=>{
@@ -47,7 +48,7 @@ import { useNavigate } from "react-router-dom";
               <div key={item.itemID} value={item.itemID} onClick={()=>clicked(item)} className="cardIO">   
                   <div className="imgDiv">
                     {item.image ? 
-                    <img className="innerImg" src={`https://3.145.154.246/images/${item.image}`} alt={item.name}/>
+                    <img className="innerImg" src={`${APILocation}/images/${item.image}`} alt={item.name}/>
                       : <div> Loading....</div>};
                   </div>
                   <div className="card-footer">

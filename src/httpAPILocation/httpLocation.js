@@ -1,0 +1,1 @@
+export const APILocation = "https://3.145.154.246";

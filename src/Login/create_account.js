@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Link} from "react-router-dom";
 import Logo from "./../images/logoBg.png";
 import axios from "axios";
-
+import { APILocation } from '../httpAPILocation/httpLocation';
 function Create_Account() {
     const[username, setUsername] = useState("");
     const[email,setEmail] = useState("");
@@ -18,7 +18,7 @@ function Create_Account() {
     function registerSubmitted(event)
     {
         event.preventDefault();
-        axios.post("https://3.145.154.246/register", data)
+        axios.post(`${APILocation}/register`, data)
         .then(response =>{
 
             if(document.getElementById("message") == null){

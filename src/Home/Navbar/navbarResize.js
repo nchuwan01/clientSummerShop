@@ -7,6 +7,7 @@ import Logo from "../../images/logoBg.png";
 import {faBook, faComputer, faHouse, faPlus, faBarsStaggered, faMoneyBill} from "@fortawesome/free-solid-svg-icons";
 import "./navbarResizeStyle.css";
 import cookies from "js-cookie";
+import {APILocation} from "../../httpAPILocation/httpLocation";
 
 
 
@@ -21,7 +22,7 @@ function NavbarResize() {
     }
     function logoutClicked()
     {
-      axios.post("https://3.145.154.246/logout")
+      axios.post(`${APILocation}/logout`)
       .then(res =>{
         cookies.remove("access-token");
         navigate("/");
@@ -34,11 +35,10 @@ function NavbarResize() {
     }
   
   
-    axios.get("https://3.145.154.246/login/", {
+    axios.get(`${APILocation}/login/`, {
       headers: {
-        withCredentials: true,
-        cook: cookies.get("access-token")
-    }})
+        withCredentials: true    
+      }})
     .then(result => {
       if(result.data)
       {
