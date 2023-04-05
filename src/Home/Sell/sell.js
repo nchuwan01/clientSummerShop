@@ -113,7 +113,7 @@ function Sell() {
             </div>
             <div className="form-group col-md-4">
               <label>Image</label>
-              <input type="file" aria-label="Upload Image" onChange={handleImage} className="form-control sellInputs" id="inputPassword4" accept="image/*" required/>
+              <input type="file" aria-label="Upload Image" onChange={handleImage} className="form-control sellInputs" id="inputPassword4" required/>
             </div>
           </div>
           <div id="submitBtn">
