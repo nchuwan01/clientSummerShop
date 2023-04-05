@@ -43,10 +43,12 @@ function NavbarResize() {
       {
         if(result.data === "Sign In")
         {
-          setUsername("Sign In")
+          setUsername(result.data)
+          console.log("From sign in ",result.data)
         }
         else
         {
+          console.log("from logged in " ,result.data)
           setUsername(result.data);
         }
       }
@@ -111,7 +113,7 @@ function NavbarResize() {
                 <div className="middleDiv">
     
                     <li className="nav-item active">
-                        {username==="Sign In" ? <Link to="/"><button className="btn btn-outline-primary"> Sign In</button></Link> : <small>Welcome, {username}! <button className="btn btn-outline-secondary" onClick={()=>{logoutClicked()}}>Sign Out</button></small> }
+                        {username==="Sign In"?<Link to="/"><button className="btn btn-outline-primary"> Sign In</button></Link> : <small>Welcome, {username}! <button className="btn btn-outline-secondary" onClick={()=>{logoutClicked()}}>Sign Out</button></small> }
                     </li>
                 </div>
             </div>
