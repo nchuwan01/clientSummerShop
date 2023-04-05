@@ -18,62 +18,28 @@ function Create_Account() {
     function registerSubmitted(event)
     {
         event.preventDefault();
-        axios.post(`${APILocation}/register`, data)
-        .then(response =>{
+        let message = "";
+        if(!document.getElementById("message"))
+        {
+            let newDiv = document.createElement("div");
+            let innerDiv = document.getElementById("logo_img");
+            newDiv.id = "message";
+            innerDiv.after(newDiv)
+        }
+        
+        if(password !== confirm_password)
+        {   
+            message = "Password needs to match. Please try again"
+            document.getElementById("message").innerHTML = message;
 
-            if(document.getElementById("message") == null){
-                let newDiv = document.createElement("div");
-                let text = document.createTextNode(response.data);
-                newDiv.append(text);
-                let innerDiv = document.getElementById("logo_img");
-                newDiv.id = "message";
-                innerDiv.after(newDiv)
+        }else{
+            axios.post(`${APILocation}/register`, data)
+            .then(response =>{
+                message = response.data;
+                document.getElementById("message").innerHTML = message;
+            })
+        }
                 
-            }else{
-                document.getElementById("message").innerHTML = response.data;
-            }
-            
-        })
-    }
-
-    
-
-    function passwordCheck(e)
-    {
-        e.preventDefault();
-        setPassword(e.target.value);
-        if(confirm_password !== "")
-        {
-            password_commenter(e.target.value);
-        }
-
-    }
-    function confirmPassword(e)
-    {
-        e.preventDefault();
-        setconfirm_password(e.target.value);
-        password_commenter(e.target.value);
-       
-    }
-    function password_commenter(val)
-    {
-        let span_id = document.getElementById("span_password");
-        let button_submit = document.getElementById("button_submit");
-        if(val !== confirm_password && val !== password)
-        {
-            span_id.innerHTML = "Password not matching...."
-            span_id.style.color = "red";
-            button_submit.disabled = true;
-        }
-        else{
-            
-            span_id.style.color = "green";
-            span_id.innerHTML = "Password matched"
-            button_submit.disabled = false;
-
-
-        }
-
     }
 
     return (
@@ -89,20 +55,20 @@ function Create_Account() {
                     </div>
                     <div className="label_input">
                         <label> Username: </label>
-                        <input type="text" onChange={(e)=>{setUsername(e.target.value)}} name="user_name" placeholder="Username" required></input>
+                        <input type="text" className="createInputs" value={username} onChange={(e)=>{setUsername(e.target.value)}} name="user_name" placeholder="Username" required></input>
                     </div>
                     <div className="label_input">
                         <label> Email: </label>
-                        <input type="email" onChange={(e)=>{setEmail(e.target.value)}} pattern=".+@aurora.edu" name="email" placeholder="Ex: john02@aurora.edu" required></input>
+                        <input type="email" className="createInputs" value={email} onChange={(e)=>{setEmail(e.target.value)}} pattern=".+@aurora.edu" name="email" placeholder="Ex: john02@aurora.edu" required></input>
                     </div>
                     <div className="label_input">
                         <label> Password: </label>
-                        <input onChange={(e) =>{passwordCheck(e)}}  type="password" name="password" placeholder="Password" required></input>
+                        <input onChange={(e) =>{setPassword(e.target.value)}} value={password}  className="createInputs" type="password" name="password" placeholder="Password" required></input>
                     </div>
 
                     <div className="label_input">
                         <label> Confirm Password: </label>
-                        <input onChange={(e) =>{confirmPassword(e)}}  type="password" placeholder="Retype Password" required></input>
+                        <input onChange={(e) => setconfirm_password(e.target.value)} value={confirm_password} type="password" placeholder="Retype Password" className="createInputs" required></input>
                     </div>
                     <div id="password_message">
                         <span id="span_password"></span>
