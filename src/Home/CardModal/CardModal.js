@@ -43,12 +43,10 @@ function CardModal()
          setPoster(userRes.data);
   
         // Check if the logged-in user is the owner of the item
-        const resultRes = await axios.get(`${APILocation}/login`, {
-          headers: {
+        const resultRes = await axios.get(`${APILocation}/login`,{
             withCredentials: true,
-            cook: cookies.get('access-token')
           }
-        });
+        );
         const resultData = resultRes.data;
         console.log("result data: ",resultData)
         if (resultData === userRes.data) {
@@ -65,11 +63,10 @@ function CardModal()
       function handleSubmit(event)
       {   
         event.preventDefault();     
-        axios.post(`${APILocation}/login/message`,[{ "sid":sid, "message": message, "itemName": name} ], {
-          headers: {
-            withCredentials: true,
-            cook: cookies.get("access-token")
-        }})
+        axios.post(`${APILocation}/login/message`,[{ "sid":sid, "message": message, "itemName": name} ], 
+          {
+            withCredentials: true        
+          })
         .then(res =>{
           console.log(res.data);
           if(document.getElementById("message")==null){
@@ -83,6 +80,7 @@ function CardModal()
             {
               
               text = document.createTextNode("Email Has Been Sent");
+              document.getElementById("sendMessageButton").innerText = " ";
               newDiv.style.color = "green";
             }
 

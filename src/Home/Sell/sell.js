@@ -2,6 +2,7 @@ import {useState } from "react";
 import axios from "axios";
 import "./../HomeCSS/homeStyle.css";
 import {APILocation} from "../../httpAPILocation/httpLocation";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -11,12 +12,12 @@ function Sell() {
   const[price,setPrice] = useState("");
   const[category, setCategory] = useState("Textbooks");
   const[image, setImage] = useState('');
+  const navigate = useNavigate();
+
 
   function handleImage(e)
   {
-
     setImage(e.target.files[0]);
-
   }
 
   function checkPrice(e){
@@ -59,6 +60,12 @@ function Sell() {
         else 
         {
           text = document.createTextNode("Your item is on sale now!");
+          if(category === "Household Item")
+          {
+            navigate(`/login/Household`)
+          }else{
+            navigate(`/login/${category}`)
+          }
           newDiv.style.color = "yellow";
 
         }
@@ -80,11 +87,11 @@ function Sell() {
           <div className="form-row">
             <div className="form-group col-md-3" id="messageBox">
               <label>Item Name</label>
-              <input type="text"  maxLength={30} onChange={(e)=>{setItem(e.target.value)}} className="form-control" placeholder="Item Name" required/>
+              <input type="text"  maxLength={30} onChange={(e)=>{setItem(e.target.value)}} className="form-control sellInputs" placeholder="Item Name" required/>
             </div>
             <div className="form-group  col-md-9">
               <label>Description</label>
-              <textarea className="form-control" maxLength={150} onChange={(e)=>{setDescription(e.target.value)}} placeholder="ISBN(if book) or Any important information buyer needs to know about the product" required/>
+              <textarea className="form-control sellInputs" maxLength={150} onChange={(e)=>{setDescription(e.target.value)}} placeholder="ISBN(if book) or Any important information buyer needs to know about the product" required/>
             </div>
            
           </div>
@@ -92,12 +99,12 @@ function Sell() {
           <div className="form-row">
             <div className="form-group">
               <label>Price</label>
-              <input type="number"  min="0" max="5000" onChange={(e)=>{checkPrice(e)}} className="form-control" placeholder="45" required/>
+              <input type="number"  min="0" max="5000" onChange={(e)=>{checkPrice(e)}} className="form-control sellInputs" placeholder="45" required/>
             </div>
             
             <div className="form-group col-md-4">
               <label>Category</label>
-              <select id="inputState" value={category} className="form-control" onChange={(e)=>{setCategory(e.target.value)}}>
+              <select id="inputState" value={category} className="form-control sellInputs" onChange={(e)=>{setCategory(e.target.value)}}>
                 <option>Textbooks</option>
                 <option>Electronics</option>
                 <option>Household Item</option>
@@ -106,11 +113,11 @@ function Sell() {
             </div>
             <div className="form-group col-md-4">
               <label>Image</label>
-              <input type="file" aria-label="Upload Image" onChange={handleImage} className="form-control" id="inputPassword4" accept="image/*" required/>
+              <input type="file" aria-label="Upload Image" onChange={handleImage} className="form-control sellInputs" id="inputPassword4" accept="image/*" required/>
             </div>
           </div>
           <div id="submitBtn">
-              <button type="submit" id="sellButton" className="btn btn-light">Sell</button>
+              <button type="submit" id="sellButton" className="btn btn-light ">Sell</button>
           </div>
         </form> 
       </div>

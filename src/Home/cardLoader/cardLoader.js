@@ -49,7 +49,7 @@ import {APILocation} from "../../httpAPILocation/httpLocation";
                   <div className="imgDiv">
                     {item.image ? 
                     <img className="innerImg" src={`${APILocation}/images/${item.image}`} alt={item.name}/>
-                      : <div> Loading....</div>};
+                      : <div> Loading....</div>}
                   </div>
                   <div className="card-footer">
                     <h5 className="card-title">{item.name}</h5>
@@ -60,7 +60,7 @@ import {APILocation} from "../../httpAPILocation/httpLocation";
           ))}
           </div>
       </div>
-    );
+    )
   }
   
   export default CardLoader;
