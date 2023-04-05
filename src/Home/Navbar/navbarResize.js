@@ -35,10 +35,9 @@ function NavbarResize() {
     }
   
   
-    axios.get(`${APILocation}/login/`, {
-      headers: {
+    axios.get(`${APILocation}/login`, {
         withCredentials: true    
-      }})
+      })
     .then(result => {
       if(result.data)
       {

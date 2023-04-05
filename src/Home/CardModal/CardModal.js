@@ -80,7 +80,7 @@ function CardModal()
             {
               
               text = document.createTextNode("Email Has Been Sent");
-              document.getElementById("sendMessageButton").innerText = " ";
+              document.getElementById("sendMessageButton").value = " ";
               newDiv.style.color = "green";
             }
 
