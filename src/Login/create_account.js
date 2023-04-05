@@ -85,7 +85,6 @@ function Create_Account() {
                         <div>
                             <img id="logo_img" alt="summershop Logo" src={Logo}/>
                         </div>
-                        <small className="passwordWarning">Please use a different password than your usual one</small>
 
                     </div>
                     <div className="label_input">
