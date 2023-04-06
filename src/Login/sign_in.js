@@ -20,7 +20,7 @@ function Sign_In() {
     axios.post(`${APILocation}/login`, data,{
       withCredentials: true,
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': true,
       }
     })
     .then(res =>{
