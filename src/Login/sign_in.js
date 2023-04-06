@@ -42,7 +42,7 @@ function Sign_In() {
 
           <div id="main_flex">
               <div id="img_div">
-                <img id="logo_img" alt="SummerShop Logo" src={Logo}/>
+                <Link to="/login/textbooks"><img id="logo_img" alt="SummerShop Logo" src={Logo}/></Link>
               </div>
               <div className="label_input">
                   <label>Username: </label>
