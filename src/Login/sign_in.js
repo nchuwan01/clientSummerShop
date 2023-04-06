@@ -18,7 +18,10 @@ function Sign_In() {
       password: password
     }
     axios.post(`${APILocation}/login`, data,{
-      withCredentials: true
+      withCredentials: true,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
     })
     .then(res =>{
       if(res.data.detail)

@@ -27,7 +27,6 @@ function App() {
             <Route path="Other" element={<Other/>}></Route>
             <Route path="Sell" element={<Sell/>}> </Route>
             <Route path="item/:itemId" element={<CardModal/>}> </Route>
-
           </Route>
         </Routes>
       </BrowserRouter>
