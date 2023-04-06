@@ -119,7 +119,7 @@ function CardModal()
                   <textarea maxLength="150" onChange={(e)=>{setMessage(e.target.value)}} id="textAreaModal" placeholder="Ex: Hey, I would love to purchase this. Please Email Me Back!(Max 150 characters)" required></textarea>
                 </div>
                 <div className="modalDivs">
-                  <button id="sendMessageButton" type="submit" className="btn btn-outline-primary">Send Message to {poster}'s Email</button>
+                  <button id="sendMessageButton" type="submit" className="btn btn-outline-primary">Send Message to {poster}</button>
                 </div>
               </form> : <div className="modalDivs"> <button onClick={()=> deletePost()} id="deletePost" className="btn btn-outline-danger">Delete</button> </div>}
               <div className="modalDivs">
